@@ -40,53 +40,8 @@ ANALYSIS_CONFIG = {
 }
 
 # 카테고리 분류 정의
-HARMFUL_CATEGORIES = {
-    # 유해사이트 (HU)
-    'HU001': '음란',
-    'HU002': '도박', 
-    'HU003': '폭력',
-    'HU004': '마약',
-    'HU005': '자살',
-    'HU006': '엽기',
-    'HU999': '기타유해',
-    
-    # 웹프록시 (PU)
-    'PU001': '프록시(우회)',
-    
-    # 엔터테인먼트 (EU)
-    'EU001': '복권/배팅',
-    
-    # 악성코드 (MU)
-    'MU001': '피싱',
-    'MU002': 'C&C',
-    'MU003': '멀웨어',
-    
-    # 방심위 (KC)
-    'KC001': '방심위(12)',
-    'KC002': '방심위(15)', 
-    'KC003': '방심위(18)',
-    'KC004': '방심위(유해)',
-    
-    # 스미싱 유해 (SU)
-    'SU001': 'KISA 스미싱',
-    'SU004': 'KT 스미싱',
-    'SU005': '카스퍼스키 피싱',
-    'SU010': '플랜티넷 스미싱',
-    'SU008': '성인',
-    'SU011': '투자권유',
-    'SU012': '불법의약품',
-    'SU013': '도박',
-    'SU014': '대출',
-}
-
-SAFE_CATEGORIES = {
-    # 스미싱 안전 (SU)
-    'SU002': 'KT 안전',
-    'SU003': 'KISA 안전', 
-    'SU006': '비업무URL 안전',
-    'SU007': '관리자 정의 안전',
-    'SU009': '쇼핑몰(광고)',
-}
+HARMFUL_CATEGORIES = dict(config.items('categories.harmful'))
+SAFE_CATEGORIES = dict(config.items('categories.safe'))
 
 TRACK_URL = [
  'ads3.trafficjunky.net', 'engine.adsupply.com', 'ads.adcash.com', 'ads.plugrush.com',
