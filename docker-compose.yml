@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  url-analysis:
+    build: .
+    container_name: url-analysis-app
+    volumes:
+      - ./data/analysis_results:/app/data/analysis_results
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+    networks:
+      - analysis-network
+    restart: unless-stopped
+
+networks:
+  analysis-network:
+    driver: bridge
